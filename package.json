@@ -2,8 +2,9 @@
   "name": "resolve-my-text-api",
   "version": "1.0.0",
   "description": "Backend for resolving a numeric string to all possible alphabetic possibilities",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

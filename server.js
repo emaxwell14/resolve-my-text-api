@@ -4,9 +4,7 @@ const chalk = require('chalk');
 
 const app = express();
 const router = express.Router();
-
-// TODO setup config with nodemon
-const port = 8080;
+const port = process.env.PORT;
 
 router.get('/', (req, res) => res.json({ data: 'test api' }));
 app.use(router);
@@ -17,7 +15,6 @@ app.use((error, req, res, next) => {
   res.status(error.status || 500).send({ error });
   next();
 });
-
 
 // Start server
 app.listen(port, (err) => {
