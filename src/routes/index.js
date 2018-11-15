@@ -1,12 +1,12 @@
 const express = require('express');
-const letterRoute = require('./letterRoute');
+const letterRoutes = require('./letterRoute');
 
-module.export = {
+module.exports = {
   getRouter,
 };
 
 function getRouter() {
   const router = express.Router();
-  router.post('/', letterRoute);
+  router.use(letterRoutes.getRouter());
   return router;
 }
