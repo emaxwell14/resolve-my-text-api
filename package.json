@@ -1,0 +1,24 @@
+{
+  "name": "resolve-my-text-api",
+  "version": "1.0.0",
+  "description": "Backend for resolving a numeric string to all possible alphabetic possibilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emaxwell14/resolve-my-text-api.git"
+  },
+  "author": "Eoghan Maxwell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emaxwell14/resolve-my-text-api/issues"
+  },
+  "homepage": "https://github.com/emaxwell14/resolve-my-text-api#readme",
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
