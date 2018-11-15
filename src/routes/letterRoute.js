@@ -13,9 +13,7 @@ function computeLetters({ body: { number } }, res) {
     return res.status(200).send();
   }
 
-  const error = number
-    ? ERROR_MSG_INVALID_NUMBER_PARAM
-    : ERROR_MSG_MISSING_NUMBER_PARAM;
+  const error = number ? ERROR_MSG_INVALID_NUMBER_PARAM : ERROR_MSG_MISSING_NUMBER_PARAM;
 
   return res.status(422).send({ error });
 }

@@ -3,7 +3,10 @@
         "node": true,
         "mocha": true
     },
-    "extends": "airbnb-base",
+    "extends": [
+        "airbnb-base",
+        "prettier"
+    ],
     "plugins": [
         "prettier"
     ],
@@ -18,7 +21,9 @@
         "prettier/prettier": [
             "error",
             {
-                "singleQuote": true
+                "trailingComma": "es5",
+                "singleQuote": true,
+                "printWidth": 120
             }
         ]
     }

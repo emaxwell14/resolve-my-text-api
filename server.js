@@ -16,7 +16,7 @@ app.use((error, req, res, next) => {
 });
 
 // Start server
-app.listen(port, (err) => {
+app.listen(port, err => {
   if (err) {
     console.log(chalk.red('Server Error: '), err);
   }
