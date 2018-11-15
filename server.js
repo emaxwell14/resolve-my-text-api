@@ -1,13 +1,12 @@
 /* eslint-disable no-console */
 const express = require('express');
 const chalk = require('chalk');
+const api = require('./src/routes');
 
 const app = express();
-const router = express.Router();
 const port = process.env.PORT;
 
-router.get('/', (req, res) => res.json({ data: 'test api' }));
-app.use(router);
+app.use(api.getRouter());
 
 // Error handler
 app.use((error, req, res, next) => {
