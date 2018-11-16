@@ -23,7 +23,7 @@ describe('Letter Router', () => {
   it('should return status unprocessable when request body is empty', () => {
     computeLetters(mockReq, mockRes);
     assert.equal(mockRes.statusCode, UNPROCESSABLE_ENTITY);
-    assert.equal(mockRes._getData().error, 'Request body must contain number field');
+    assert.equal(mockRes._getData().error, 'Request body number field must be an integer');
   });
 
   it('should return status unprocessable when request contains an invalid number', () => {
