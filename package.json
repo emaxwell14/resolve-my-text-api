@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "nyc mocha test/**/*.spec.js"
+    "test": "nyc mocha test/**/*.spec.js",
+    "test:nocoverage": "mocha test/**/*.spec.js"
   },
   "repository": {
     "type": "git",
