@@ -59,15 +59,11 @@ const getLettersForOneNumber = numberString => {
  */
 const getLettersEachDigit = digitArray => digitArray.map(currentNumber => getLettersForOneNumber(currentNumber));
 
-/**
- * Breaking an integer into an array of digit strings
- *
- * @param {integer} number
- */
-const convertNumberToDigitArray = number => number.toString().split('');
+const NUMBER_REGEX = '^[234567890]+$';
+const isValidNumber = number => new RegExp(NUMBER_REGEX).test(number);
 
 module.exports = {
   generatePossibilitiesRecursively,
   getLettersEachDigit,
-  convertNumberToDigitArray,
+  isValidNumber,
 };
