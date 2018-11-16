@@ -178,8 +178,21 @@ describe('Letter Service', () => {
     assert.equal(computeLettersForNumber('23456').length, Math.pow(3, 5));
   });
 
-  it('should return correct strings for 10 numbers with three possibilities', () => {
+  it('should return correct strings for five numbers with four possibilities', () => {
+    assert.equal(computeLettersForNumber('79979').length, Math.pow(4, 5));
+  });
+
+  it('should return correct strings for ten numbers with three possibilities', () => {
     assert.equal(computeLettersForNumber('2345683454').length, Math.pow(3, 10));
+  });
+
+  it('should return correct strings for ten numbers with four possibilities', () => {
+    assert.equal(computeLettersForNumber('7997997799').length, Math.pow(4, 10));
+  });
+
+  // TODO handle timeout when string reaches 13
+  it('should return correct strings for 13 numbers with three possibilities', () => {
+    assert.equal(computeLettersForNumber('2345568343554').length, Math.pow(3, 13));
   });
 
   /* eslint-enable no-restricted-properties */
