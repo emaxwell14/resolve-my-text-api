@@ -23,7 +23,7 @@ describe('Letter Service', () => {
   /* ########## SINGLE NUMBER TESTS ########## */
 
   it('should return correct strings for number one', () => {
-    assert.deepEqual(computeLettersForNumber(1), []);
+    assert.deepEqual(computeLettersForNumber(1), ['']);
   });
 
   it('should return correct strings for number two', () => {
@@ -129,5 +129,13 @@ describe('Letter Service', () => {
       'or',
       'os',
     ]);
+  });
+
+  it('should return correct strings for two number including one', () => {
+    assert.deepEqual(computeLettersForNumber(21), ['a', 'b', 'c']);
+  });
+
+  it('should return correct strings for two number including zero', () => {
+    assert.deepEqual(computeLettersForNumber(20), ['a ', 'b ', 'c ']);
   });
 });

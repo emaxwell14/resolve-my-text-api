@@ -1,18 +1,33 @@
-const generatePossibilitiesRecursively = (currentLetterArrays, result, depth, currentPossibility) => {
+/**
+ * Recursive method that accepts a nested array of digit strings and outputs an array of strings which contains
+ * each possibility.
+ *
+ * @param {array} letterArrays Array containing an array for each digit
+ * @param {array} result The final output array. If currentPossibility is complete, it is added to this
+ * @param {integer} depth Tracks the number of levels that the method has reached in the nested arrays
+ * @param {*} currentPossibility String that is build up on each iteration
+ */
+const generatePossibilitiesRecursively = (letterArrays, result, depth, currentPossibility) => {
   // If current array has reached the end, add build up string to result
-  if (depth === currentLetterArrays.length) {
+  if (depth === letterArrays.length) {
     result.push(currentPossibility);
     return;
   }
 
-  // Loop over the current array at a certain depth. Will keep arriving here until at max depth
-  currentLetterArrays[depth].forEach(nextLetter => {
-    generatePossibilitiesRecursively(currentLetterArrays, result, depth + 1, `${currentPossibility}${nextLetter}`);
+  // Recall the method for the current array. Will keep arriving here until at max depth
+  letterArrays[depth].forEach(nextLetter => {
+    generatePossibilitiesRecursively(letterArrays, result, depth + 1, `${currentPossibility}${nextLetter}`);
   });
 };
 
-const getLettersForOneNumber = number => {
-  switch (number) {
+/**
+ * For any valid number string, returning the associated letters.
+ * If number is not found, returning an mpty array
+ *
+ * @param {string} numberString
+ */
+const getLettersForOneNumber = numberString => {
+  switch (numberString) {
     case '2':
       return ['a', 'b', 'c'];
     case '3':
@@ -32,12 +47,23 @@ const getLettersForOneNumber = number => {
     case '0':
       return [' '];
     default:
-      return [];
+      return [''];
   }
 };
 
+/**
+ * For an array of digits, returning an array containing an
+ * array of letters for each digit
+ *
+ * @param {array} digitArray
+ */
 const getLettersEachDigit = digitArray => digitArray.map(currentNumber => getLettersForOneNumber(currentNumber));
 
+/**
+ * Breaking an integer into an array of digit strings
+ *
+ * @param {integer} number
+ */
 const convertNumberToDigitArray = number => number.toString().split('');
 
 module.exports = {
