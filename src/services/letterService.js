@@ -6,19 +6,22 @@ module.exports = {
 const ERROR_MSG_INVALID_NUMBER_PARAM = 'Request body number field must be an integer';
 const ERROR_MSG_MISSING_NUMBER_PARAM = 'Request body must contain number field';
 
+const convertNumberToDigitArray = number => number.toString().split('');
+
 function computeLettersForNumber(number) {
   if (!Number.isInteger(number)) {
     const errorMsg = number ? ERROR_MSG_INVALID_NUMBER_PARAM : ERROR_MSG_MISSING_NUMBER_PARAM;
     throw Error(errorMsg);
   }
 
-  const numbersEnteredArray = number.toString().split('');
-  const allLetterArrays = [];
+  const numbersEnteredArray = convertNumberToDigitArray(number);
 
+  const allLetterArrays = [];
   numbersEnteredArray.forEach(currentNumber => {
     allLetterArrays.push(getLettersForOneNumber(currentNumber));
   });
 
+  // Need to define result here as it is being passed through the recursive method
   const result = [];
   generatePossibilitiesRecursively(allLetterArrays, result, 0, '');
   return result;
@@ -32,14 +35,9 @@ function generatePossibilitiesRecursively(currentLetterArrays, result, depth, cu
   }
 
   // Loop over the current array at a certain depth. Will keep arriving here until at max depth
-  for (let i = 0; i < currentLetterArrays[depth].length; i += 1) {
-    generatePossibilitiesRecursively(
-      currentLetterArrays,
-      result,
-      depth + 1,
-      `${currentPossibility}${currentLetterArrays[depth][i]}`
-    );
-  }
+  currentLetterArrays[depth].forEach(nextLetter => {
+    generatePossibilitiesRecursively(currentLetterArrays, result, depth + 1, `${currentPossibility}${nextLetter}`);
+  });
 }
 
 function getLettersForOneNumber(number) {

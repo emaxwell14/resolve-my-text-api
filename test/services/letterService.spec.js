@@ -64,7 +64,70 @@ describe('Letter Service', () => {
 
   /* ########## TWO NUMBER TESTS ########## */
 
-  it('should return correct strings for two', () => {
+  it('should return correct strings for two of the same number with three possibilities', () => {
     assert.deepEqual(computeLettersForNumber(22), ['aa', 'ab', 'ac', 'ba', 'bb', 'bc', 'ca', 'cb', 'cc']);
+  });
+
+  it('should return correct strings for two different numbers with three possibilities', () => {
+    assert.deepEqual(computeLettersForNumber(34), ['dg', 'dh', 'di', 'eg', 'eh', 'ei', 'fg', 'fh', 'fi']);
+  });
+
+  it('should return correct strings for two of the same number with four possibilities', () => {
+    assert.deepEqual(computeLettersForNumber(99), [
+      'ww',
+      'wx',
+      'wy',
+      'wz',
+      'xw',
+      'xx',
+      'xy',
+      'xz',
+      'yw',
+      'yx',
+      'yy',
+      'yz',
+      'zw',
+      'zx',
+      'zy',
+      'zz',
+    ]);
+  });
+
+  it('should return correct strings for two different numbers with four possibilities', () => {
+    assert.deepEqual(computeLettersForNumber(97), [
+      'wp',
+      'wq',
+      'wr',
+      'ws',
+      'xp',
+      'xq',
+      'xr',
+      'xs',
+      'yp',
+      'yq',
+      'yr',
+      'ys',
+      'zp',
+      'zq',
+      'zr',
+      'zs',
+    ]);
+  });
+
+  it('should return correct strings for one number with three possibilities and one with four possibilities', () => {
+    assert.deepEqual(computeLettersForNumber(67), [
+      'mp',
+      'mq',
+      'mr',
+      'ms',
+      'np',
+      'nq',
+      'nr',
+      'ns',
+      'op',
+      'oq',
+      'or',
+      'os',
+    ]);
   });
 });
