@@ -1,10 +1,17 @@
 /* eslint-disable no-console */
 const express = require('express');
 const chalk = require('chalk');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const api = require('./src/routes');
 
 const app = express();
 const port = process.env.PORT;
+
+// Define middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(api.getRouter());
 

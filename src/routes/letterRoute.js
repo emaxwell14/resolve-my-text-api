@@ -18,6 +18,6 @@ function computeLetters({ body: { number } }, res) {
 
 function getRouter() {
   const router = express.Router();
-  router.post('/', computeLetters);
+  router.post('/computeLetters', computeLetters);
   return router;
 }
