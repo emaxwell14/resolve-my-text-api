@@ -1,7 +1,6 @@
 const express = require('express');
-
-const ERROR_MSG_MISSING_NUMBER_PARAM = 'Request body must contain number field';
-const ERROR_MSG_INVALID_NUMBER_PARAM = 'Request body number field must be an integer';
+const { UNPROCESSABLE_ENTITY, OK } = require('http-status-codes');
+const { letterService } = require('../services');
 
 module.exports = {
   getRouter,
@@ -9,13 +8,12 @@ module.exports = {
 };
 
 function computeLetters({ body: { number } }, res) {
-  if (number && Number.isInteger(number)) {
-    return res.status(200).send();
+  try {
+    const data = letterService.computeLettersForNumber(number);
+    return res.status(OK).send({ data });
+  } catch ({ message }) {
+    return res.status(UNPROCESSABLE_ENTITY).send({ error: message });
   }
-
-  const error = number ? ERROR_MSG_INVALID_NUMBER_PARAM : ERROR_MSG_MISSING_NUMBER_PARAM;
-
-  return res.status(422).send({ error });
 }
 
 function getRouter() {
