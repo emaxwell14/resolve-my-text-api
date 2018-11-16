@@ -64,7 +64,7 @@ describe('Letter Service', () => {
 
   /* ########## TWO NUMBER TESTS ########## */
 
-  it('should return correct strings for number zero', () => {
+  it('should return correct strings for two', () => {
     assert.deepEqual(computeLettersForNumber(22), ['aa', 'ab', 'ac', 'ba', 'bb', 'bc', 'ca', 'cb', 'cc']);
   });
 });
