@@ -165,6 +165,27 @@ describe('Letter Service', () => {
     ]);
   });
 
+  it('should return correct strings for three numbers including zero and three possibilities', () => {
+    assert.deepEqual(computeLettersForNumber('202'), ['a a', 'a b', 'a c', 'b a', 'b b', 'b c', 'c a', 'c b', 'c c']);
+  });
+
+  it('should return correct strings for three numbers including zero and four possibilities', () => {
+    assert.deepEqual(computeLettersForNumber('607'), [
+      'm p',
+      'm q',
+      'm r',
+      'm s',
+      'n p',
+      'n q',
+      'n r',
+      'n s',
+      'o p',
+      'o q',
+      'o r',
+      'o s',
+    ]);
+  });
+
   /* ########## LARGER NUMBER TESTS (USING LENGTH) ########## */
 
   it('should return correct strings for three many numbers with three possibilities', () => {
@@ -190,7 +211,7 @@ describe('Letter Service', () => {
     assert.equal(computeLettersForNumber('7997997799').length, Math.pow(4, 10));
   });
 
-  // TODO handle timeout when string reaches 13
+  // TODO Failing test: Recursive method cannot handle string reaches 13
   it('should return correct strings for 13 numbers with three possibilities', () => {
     assert.equal(computeLettersForNumber('2345568343554').length, Math.pow(3, 13));
   });
