@@ -2,16 +2,24 @@
 
 ## Endpoint
 
-**/computeLetters**
-Returns a JWT token for all subsequent requests.
-Verifies the user exists.
+**POST /computeLetters**
+
+For a given number string, returns an array of all possible text combinations.
 
 *Request JSON body:*
 ```
 {
-	"number": "[number]"
+  "number": "24"
 }
 ```
+
+*Response JSON body:*
+```
+{
+	data: ["ag", "ah", "ai", "bg", "bh", "bi", "cg", "ch", "ci"]
+}
+```
+
 *Validation errors return a 422 Response:*
  - Number must exist in the body.
  - Number must be a string of made up of the following values 234567890.
