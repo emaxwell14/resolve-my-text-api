@@ -62,8 +62,12 @@ const getLettersEachDigit = digitArray => digitArray.map(currentNumber => getLet
 const NUMBER_REGEX = '^[234567890]+$';
 const isValidNumber = number => new RegExp(NUMBER_REGEX).test(number);
 
+const MAX_STRING_LENGTH = 12;
+const exceedsMaxLength = numberString => numberString.length > MAX_STRING_LENGTH;
+
 module.exports = {
   generatePossibilitiesRecursively,
   getLettersEachDigit,
   isValidNumber,
+  exceedsMaxLength,
 };

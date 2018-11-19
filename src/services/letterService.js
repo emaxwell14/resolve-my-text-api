@@ -5,6 +5,7 @@ module.exports = {
 };
 
 const ERROR_MSG_INVALID_NUMBER_PARAM = 'Request body number field can only contain the following digits: 234567890';
+const PERFORMANCE_WARNING = 'Number is too long to process.';
 
 /**
  * Converts an integer into an array of possible text strings.
@@ -15,6 +16,10 @@ const ERROR_MSG_INVALID_NUMBER_PARAM = 'Request body number field can only conta
 function computeLettersForNumber(numberString) {
   if (!letterUtils.isValidNumber(numberString)) {
     throw Error(ERROR_MSG_INVALID_NUMBER_PARAM);
+  }
+
+  if (letterUtils.exceedsMaxLength(numberString)) {
+    throw Error(PERFORMANCE_WARNING);
   }
 
   const digitArray = numberString.split('');

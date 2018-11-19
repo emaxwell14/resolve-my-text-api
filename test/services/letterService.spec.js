@@ -207,14 +207,12 @@ describe('Letter Service', () => {
     assert.equal(computeLettersForNumber('2345683454').length, Math.pow(3, 10));
   });
 
-  it('should return correct strings for ten numbers with four possibilities', () => {
-    assert.equal(computeLettersForNumber('7997997799').length, Math.pow(4, 10));
-  });
-
-  // TODO Failing test: Recursive method cannot handle string reaches 13
-  it('should return correct strings for 13 numbers with three possibilities', () => {
-    assert.equal(computeLettersForNumber('2345568343554').length, Math.pow(3, 13));
+  it('should return correct strings for 12 numbers with three possibilities', () => {
+    assert.equal(computeLettersForNumber('234556834355').length, Math.pow(3, 12));
   });
 
   /* eslint-enable no-restricted-properties */
+  it('should throw an error if number is too long', () => {
+    assert.throws(() => computeLettersForNumber('9999999999999'), Error);
+  });
 });
